@@ -22,7 +22,7 @@
 
 #define RANDOM_SEED 20  //For RANDOM SEED 
 
-//baronFunc 
+//int baronFunc (int choice1, struct gameState *state, int currentPlayer)
 /*
     - Initialize variables
     - Call refactored functions
@@ -32,10 +32,6 @@
 int main (int argc, char** argv)
 {
     struct gameState G;
-    
-    int i;
-
-    int start = -1;
 
     int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse, 
             sea_hag, tribute, smithy};

@@ -69,6 +69,70 @@ cardtest5: cardtest5.c
 	echo "cardtest5.c"
 	gcc -o cardtest5 -g cardtest5.c dominion.o rngs.o $(CFLAGS)
 
+unittestresults: unittest1.c unittest2.c unittest3.c unittest4.c unittest5.c cardtest1.c cardtest2.c cardtest3.c cardtest4.c cardtest5.c 
+	echo "Result for running Unit tests:" > unittestresults.out
+
+	echo "unittest1.c:" >> unittestresults.out
+	gcc -o unittest1 -g dominion.c rngs.c unittest1.c $(CFLAGS)
+	./unittest1 >> unittestresults.out
+	gcov unittest1.c -b -f >> unittestresults.out
+	
+
+	echo "unittest2.c:" >> unittestresults.out
+	gcc -o unittest2 dominion.c rngs.c unittest2.c  $(CFLAGS)
+	./unittest2 >> unittestresults.out
+	gcov unittest2.c -b -f >> unittestresults.out
+
+
+	echo "unittest3.c:" >> unittestresults.out
+	gcc -o unittest3 dominion.c rngs.c unittest3.c  $(CFLAGS)
+	./unittest3 >> unittestresults.out
+	gcov unittest3.c -b -f >> unittestresults.out
+
+
+	echo "unittest4.c:" >> unittestresults.out
+	gcc -o unittest4 dominion.c rngs.c unittest4.c  $(CFLAGS)
+	./unittest4 >> unittestresults.out
+	gcov unittest4.c -b -f >> unittestresults.out
+
+
+	echo "unittest5.c:" >> unittestresults.out
+	gcc -o unittest5 dominion.c rngs.c unittest5.c  $(CFLAGS)
+	./unittest5 >> unittestresults.out
+	gcov unittest5.c -b -f >> unittestresults.out
+
+
+	echo "cardtest1.c:" >> unittestresults.out
+	gcc -o cardtest1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
+	./cardtest1 >> unittestresults.out
+	gcov cardtest1.c -b -f >> unittestresults.out
+
+
+	echo "cardtest2.c:" >> unittestresults.out
+	gcc -o cardtest2 -g cardtest2.c dominion.o rngs.o $(CFLAGS)
+	./cardtest2 >> unittestresults.out
+	gcov cardtest2.c -b -f >> unittestresults.out
+
+
+	echo "cardtest3.c:" >> unittestresults.out
+	gcc -o cardtest3 -g cardtest3.c dominion.o rngs.o $(CFLAGS)
+	./cardtest3 >> unittestresults.out
+	gcov cardtest3.c -b -f >> unittestresults.out
+
+
+	echo "cardtest4.c:" >> unittestresults.out
+	gcc -o cardtest4 -g cardtest4.c dominion.o rngs.o $(CFLAGS)
+	./cardtest4 >> unittestresults.out
+	gcov cardtest4.c -b -f >> unittestresults.out
+
+
+	echo "cardtest5.c:" >> unittestresults.out
+	gcc -o cardtest5 -g cardtest5.c dominion.o rngs.o $(CFLAGS)
+	./cardtest5 >> unittestresults.out
+	gcov cardtest5.c -b -f >> unittestresults.out
+
+	gcov dominion.c -b -f >> unittestresults.out
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
